@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WordTally Support</title>
+<meta name="description" content="Help and contact for WordTally, the English vocabulary app for iPhone.">
+<style>
+  /* Same paper, ink and amber as the app and the privacy policy page. */
+  :root {
+    --paper: #F7F3EC;
+    --sheet: #FFFFFF;
+    --ink: #2B2620;
+    --ink-soft: rgba(43, 38, 32, 0.68);
+    --hair: rgba(43, 38, 32, 0.12);
+    --amber: #B86C22;
+    --amber-ink: #FFF8EF;
+    --display: ui-serif, "New York", Georgia, "Times New Roman", serif;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1E1B17; --sheet: #26221D; --ink: #EEE7DC;
+      --ink-soft: rgba(238, 231, 220, 0.68); --hair: rgba(238, 231, 220, 0.14);
+      --amber: #E09A52; --amber-ink: #1E1B17; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1E1B17; --sheet: #26221D; --ink: #EEE7DC;
+    --ink-soft: rgba(238, 231, 220, 0.68); --hair: rgba(238, 231, 220, 0.14);
+    --amber: #E09A52; --amber-ink: #1E1B17; color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 64px;
+  }
+  a { color: var(--amber); }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.02em; color: inherit; text-decoration: none; }
+  .tally { width: 30px; height: 22px; flex: none; }
+  h1 { font: 600 clamp(26px, 6vw, 40px)/1.15 var(--display); margin: 0; text-wrap: balance; }
+  .lead { color: var(--ink-soft); margin: 6px 0 0; }
+
+  .langs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .langs button {
+    font: 600 14px/1 var(--body);
+    padding: 9px 14px; border-radius: 999px;
+    border: 1px solid var(--hair); background: var(--sheet); color: var(--ink);
+    cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: var(--amber-ink); }
+  .langs button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  .card {
+    background: var(--sheet); border: 1px solid var(--hair); border-radius: 16px;
+    padding: 20px; display: grid; gap: 12px;
+  }
+  .card p { margin: 0; }
+  .mail {
+    justify-self: start;
+    font: 600 16px/1.2 var(--body); text-decoration: none; word-break: break-all;
+    background: var(--amber); color: var(--amber-ink);
+    padding: 12px 18px; border-radius: 12px;
+  }
+  .mail:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .note { color: var(--ink-soft); font-size: 15px; }
+
+  h2 { font: 600 21px/1.3 var(--display); margin: 0; }
+  .faq { display: grid; gap: 10px; }
+  details {
+    background: var(--sheet); border: 1px solid var(--hair); border-radius: 14px;
+    padding: 14px 18px;
+  }
+  summary {
+    font-weight: 600; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--amber); font-size: 20px; line-height: 1; flex: none; }
+  details[open] summary::after { content: "−"; }
+  details[open] summary { margin-bottom: 8px; }
+  details p { margin: 0; }
+  details p + p { margin-top: 8px; }
+  .path { font-weight: 600; }
+  footer { border-top: 1px solid var(--hair); padding-top: 16px; color: var(--ink-soft); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./">
+      <svg class="tally" viewBox="0 0 30 22" aria-hidden="true">
+        <g stroke="var(--amber)" stroke-width="2.6" stroke-linecap="round" fill="none">
+          <path d="M5 3v16M11 3v16M17 3v16M23 3v16"/><path d="M2 5l26 12"/>
+        </g>
+      </svg>
+      WordTally
+    </a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
+      <button type="button" data-lang="uk" aria-pressed="false">Українська</button>
+    </div>
+  </header>
+
+  <!-- ENGLISH -->
+  <div lang="en" data-lang-block="en" class="wrap">
+    <div>
+      <h1>Support</h1>
+      <p class="lead">WordTally helps you learn English words on iPhone, from A1 to C1.</p>
+    </div>
+    <div class="card">
+      <p>Found a bug, a wrong translation, or have an idea? Write to us, we read every message.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Easiest way: in the app open <span class="path">Settings → About → Contact Support</span>. The email will already include your app version and your ID, so we can help faster.</p>
+    </div>
+    <section class="faq">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Does the app need the internet?</summary>
+        <p>No. Words, translations, games, reminders and pronunciation all work offline.</p>
+      </details>
+      <details>
+        <summary>Pronunciation sounds robotic. How can I make it better?</summary>
+        <p>WordTally uses the voices built into iOS and picks the best English voice installed on your iPhone. Download a higher-quality one: <span class="path">iOS Settings → Accessibility → Spoken Content → Voices → English</span> (called Read &amp; Speak in newer iOS versions), then choose an Enhanced or Premium voice for your accent.</p>
+      </details>
+      <details>
+        <summary>Will my progress move to a new iPhone?</summary>
+        <p>Your progress is stored only on your iPhone and is included in your regular iPhone backup. Restore that backup on the new device, and your words come back. Syncing between devices is not available yet.</p>
+      </details>
+      <details>
+        <summary>How do I start over?</summary>
+        <p>Open <span class="path">Settings → Data → Reset progress</span>. All words become new again. This cannot be undone.</p>
+      </details>
+      <details>
+        <summary>Word reminders don’t arrive</summary>
+        <p>Check that <span class="path">Settings → Reminders → Word in notifications</span> is on in the app and at least one hour is selected. Then make sure notifications for WordTally are allowed in iOS Settings → Notifications.</p>
+      </details>
+      <details>
+        <summary>How do I add the widget?</summary>
+        <p>Home Screen: touch and hold an empty area, tap “Edit” → “Add Widget”, and search for WordTally. Lock Screen: touch and hold it, tap “Customize”, choose the area above or below the clock, and add WordTally.</p>
+      </details>
+      <details>
+        <summary>The Speak game can’t hear me</summary>
+        <p>The game needs access to the microphone and speech recognition. Allow both in <span class="path">iOS Settings → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>What data does WordTally collect?</summary>
+        <p>None. Everything stays on your device. Details are in the <a href="privacy.html">privacy policy</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- РУССКИЙ -->
+  <div lang="ru" data-lang-block="ru" class="wrap" hidden>
+    <div>
+      <h1>Поддержка</h1>
+      <p class="lead">WordTally помогает учить английские слова на iPhone, от A1 до C1.</p>
+    </div>
+    <div class="card">
+      <p>Нашли ошибку, неточный перевод или хотите что-то предложить? Напишите нам, мы читаем каждое письмо.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Проще всего написать из приложения: <span class="path">Настройки → О приложении → Написать в поддержку</span>. В письме уже будут версия приложения и ваш номер, так мы поможем быстрее.</p>
+    </div>
+    <section class="faq">
+      <h2>Частые вопросы</h2>
+      <details>
+        <summary>Нужен ли интернет?</summary>
+        <p>Нет. Слова, переводы, игры, напоминания и произношение работают без сети.</p>
+      </details>
+      <details>
+        <summary>Произношение звучит как робот. Можно лучше?</summary>
+        <p>WordTally использует голоса, встроенные в iOS, и выбирает лучший английский голос, установленный на iPhone. Скачайте голос получше: <span class="path">Настройки iOS → Универсальный доступ → Устный контент → Голоса → Английский</span> (в новых версиях iOS раздел может называться «Чтение и речь») и выберите улучшенный или премиальный голос нужного акцента.</p>
+      </details>
+      <details>
+        <summary>Перенесётся ли прогресс на новый iPhone?</summary>
+        <p>Прогресс хранится только на вашем iPhone и попадает в обычную резервную копию устройства. Восстановите эту копию на новом iPhone, и слова вернутся. Синхронизации между устройствами пока нет.</p>
+      </details>
+      <details>
+        <summary>Как начать заново?</summary>
+        <p>Откройте <span class="path">Настройки → Данные → Сбросить прогресс</span>. Все слова снова станут новыми. Отменить это нельзя.</p>
+      </details>
+      <details>
+        <summary>Не приходят слова в уведомлениях</summary>
+        <p>Проверьте, что в приложении включено <span class="path">Настройки → Напоминания → Слово в уведомлениях</span> и выбран хотя бы один час. Затем убедитесь, что уведомления для WordTally разрешены в Настройках iOS → Уведомления.</p>
+      </details>
+      <details>
+        <summary>Как добавить виджет?</summary>
+        <p>Главный экран: удерживайте пустое место, нажмите «Изменить» → «Добавить виджет» и найдите WordTally. Экран блокировки: удерживайте его, нажмите «Настроить», выберите место над часами или под ними и добавьте WordTally.</p>
+      </details>
+      <details>
+        <summary>Игра Speak меня не слышит</summary>
+        <p>Игре нужен доступ к микрофону и распознаванию речи. Разрешите оба в <span class="path">Настройках iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Какие данные собирает WordTally?</summary>
+        <p>Никаких. Всё остаётся на вашем устройстве. Подробно — в <a href="privacy.html#ru">политике конфиденциальности</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- УКРАЇНСЬКА -->
+  <div lang="uk" data-lang-block="uk" class="wrap" hidden>
+    <div>
+      <h1>Підтримка</h1>
+      <p class="lead">WordTally допомагає вчити англійські слова на iPhone, від A1 до C1.</p>
+    </div>
+    <div class="card">
+      <p>Знайшли помилку, неточний переклад чи маєте ідею? Напишіть нам, ми читаємо кожен лист.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Найпростіше написати із застосунку: <span class="path">Налаштування → Про застосунок → Написати в підтримку</span>. У листі вже будуть версія застосунку та ваш номер, тож ми допоможемо швидше.</p>
+    </div>
+    <section class="faq">
+      <h2>Часті запитання</h2>
+      <details>
+        <summary>Чи потрібен інтернет?</summary>
+        <p>Ні. Слова, переклади, ігри, нагадування та вимова працюють без мережі.</p>
+      </details>
+      <details>
+        <summary>Вимова звучить як робот. Можна краще?</summary>
+        <p>WordTally використовує голоси, вбудовані в iOS, і обирає найкращий англійський голос, встановлений на iPhone. Завантажте якісніший голос: <span class="path">Параметри iOS → Доступність → Озвучений вміст → Голоси → Англійська</span> (у нових версіях iOS розділ може називатися «Читання й мовлення») і оберіть покращений або преміальний голос потрібного акценту.</p>
+      </details>
+      <details>
+        <summary>Чи перенесеться прогрес на новий iPhone?</summary>
+        <p>Прогрес зберігається лише на вашому iPhone і потрапляє до звичайної резервної копії пристрою. Відновіть цю копію на новому iPhone, і слова повернуться. Синхронізації між пристроями поки немає.</p>
+      </details>
+      <details>
+        <summary>Як почати заново?</summary>
+        <p>Відкрийте <span class="path">Налаштування → Дані → Скинути прогрес</span>. Усі слова знову стануть новими. Скасувати це неможливо.</p>
+      </details>
+      <details>
+        <summary>Не надходять слова у сповіщеннях</summary>
+        <p>Перевірте, що в застосунку увімкнено <span class="path">Налаштування → Нагадування → Слово в сповіщеннях</span> і вибрано хоча б одну годину. Потім переконайтеся, що сповіщення для WordTally дозволені в Параметрах iOS → Сповіщення.</p>
+      </details>
+      <details>
+        <summary>Як додати віджет?</summary>
+        <p>Початковий екран: утримуйте порожнє місце, натисніть «Змінити» → «Додати віджет» і знайдіть WordTally. Замкнений екран: утримуйте його, натисніть «Налаштувати», виберіть місце над годинником або під ним і додайте WordTally.</p>
+      </details>
+      <details>
+        <summary>Гра Speak мене не чує</summary>
+        <p>Грі потрібен доступ до мікрофона та розпізнавання мовлення. Дозвольте обидва в <span class="path">Параметрах iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Які дані збирає WordTally?</summary>
+        <p>Жодних. Усе залишається на вашому пристрої. Докладно — у <a href="privacy.html#uk">політиці конфіденційності</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <footer>WordTally · iOS · <a href="privacy.html" id="privacy-link">Privacy Policy</a></footer>
+</div>
+
+<script>
+  (function () {
+    var langs = ["en", "ru", "uk"];
+    var privacy = { en: "Privacy Policy", ru: "Политика конфиденциальности", uk: "Політика конфіденційності" };
+    function show(lang) {
+      if (langs.indexOf(lang) < 0) lang = "en";
+      document.querySelectorAll("[data-lang-block]").forEach(function (el) {
+        el.hidden = el.getAttribute("data-lang-block") !== lang;
+      });
+      document.querySelectorAll(".langs button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+      });
+      var link = document.getElementById("privacy-link");
+      link.textContent = privacy[lang];
+      link.href = "privacy.html" + (lang === "en" ? "" : "#" + lang);
+      document.documentElement.lang = lang;
+    }
+    document.querySelectorAll(".langs button").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.dataset.lang); });
+    });
+    var fromHash = (location.hash || "").replace("#", "");
+    var fromBrowser = (navigator.language || "en").slice(0, 2);
+    show(langs.indexOf(fromHash) >= 0 ? fromHash : fromBrowser);
+  })();
+</script>
+</body>
+</html>

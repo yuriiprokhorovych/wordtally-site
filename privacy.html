@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WordTally Privacy Policy</title>
+<meta name="description" content="How WordTally handles your data: everything stays on your iPhone.">
+<style>
+  /* Layout: one reading column on the app's paper, a tally-mark rule under the header, language tabs on top. */
+  :root {
+    --paper: #F7F3EC;
+    --sheet: #FFFFFF;
+    --ink: #2B2620;
+    --ink-soft: rgba(43, 38, 32, 0.68);
+    --hair: rgba(43, 38, 32, 0.12);
+    --amber: #B86C22;
+    --amber-ink: #FFF8EF;
+    --display: ui-serif, "New York", Georgia, "Times New Roman", serif;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1E1B17; --sheet: #26221D; --ink: #EEE7DC;
+      --ink-soft: rgba(238, 231, 220, 0.68); --hair: rgba(238, 231, 220, 0.14);
+      --amber: #E09A52; --amber-ink: #1E1B17; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1E1B17; --sheet: #26221D; --ink: #EEE7DC;
+    --ink-soft: rgba(238, 231, 220, 0.68); --hair: rgba(238, 231, 220, 0.14);
+    --amber: #E09A52; --amber-ink: #1E1B17; color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 64px;
+  }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.02em; }
+  a.brand { color: inherit; text-decoration: none; }
+  a { color: var(--amber); }
+  .tally { width: 30px; height: 22px; flex: none; }
+  h1 {
+    font: 600 clamp(26px, 6vw, 40px)/1.15 var(--display);
+    margin: 0; text-wrap: balance;
+  }
+  .meta { color: var(--ink-soft); font-size: 15px; margin: 0; }
+
+  .langs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .langs button {
+    font: 600 14px/1 var(--body);
+    padding: 9px 14px; border-radius: 999px;
+    border: 1px solid var(--hair); background: var(--sheet); color: var(--ink);
+    cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: var(--amber-ink); }
+  .langs button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  .summary {
+    background: var(--sheet); border: 1px solid var(--hair); border-radius: 16px;
+    padding: 18px 20px; display: grid; gap: 8px;
+  }
+  .summary p { margin: 0; }
+  .summary strong { font-weight: 600; }
+
+  article { display: grid; gap: 26px; }
+  section { display: grid; gap: 8px; }
+  h2 { font: 600 21px/1.3 var(--display); margin: 0; text-wrap: balance; }
+  p, ul { margin: 0; }
+  ul { padding-left: 1.2em; display: grid; gap: 4px; }
+  .id-sample { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.92em; white-space: nowrap; }
+  .contact { font-weight: 600; word-break: break-all; }
+  footer { border-top: 1px solid var(--hair); padding-top: 16px; color: var(--ink-soft); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="./">
+      <svg class="tally" viewBox="0 0 30 22" aria-hidden="true">
+        <g stroke="var(--amber)" stroke-width="2.6" stroke-linecap="round" fill="none">
+          <path d="M5 3v16M11 3v16M17 3v16M23 3v16"/><path d="M2 5l26 12"/>
+        </g>
+      </svg>
+      WordTally
+    </a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" id="btn-en" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" id="btn-ru" data-lang="ru" aria-pressed="false">Русский</button>
+      <button type="button" id="btn-uk" data-lang="uk" aria-pressed="false">Українська</button>
+    </div>
+  </header>
+
+  <!-- ENGLISH -->
+  <div lang="en" data-lang-block="en" class="wrap">
+    <div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective October 16, 2026</p>
+    </div>
+    <div class="summary">
+      <p><strong>In short:</strong> WordTally works on your device. We do not collect, sell or share your personal data.</p>
+      <p>There are no accounts, no ads, no analytics and no third-party tracking in the app.</p>
+    </div>
+    <article>
+      <section>
+        <h2>What stays on your device</h2>
+        <p>Your learning progress, the words you are studying, study time, streaks, daily goal and settings are stored only on your iPhone. The WordTally widget reads the same data on the device to show your words. None of it is sent to us.</p>
+        <p>You can erase your progress at any time in Settings → Reset progress. Deleting the app removes this data from the device.</p>
+      </section>
+      <section>
+        <h2>Your ID</h2>
+        <p>On first launch the app creates a random number, shown in Settings as <span class="id-sample">WT-XXXXXXXX</span>. It is not linked to your name, email or Apple ID, and it is not sent to us. You can quote it if you contact us for support.</p>
+        <p>The number is kept in the iOS Keychain, so it survives reinstalling the app. If iCloud Keychain is turned on, Apple syncs it to your other devices.</p>
+      </section>
+      <section>
+        <h2>Microphone and speech recognition</h2>
+        <p>The microphone is used only in the Speak game, only after you grant permission and tap the microphone button. Your speech is matched against the word you are practicing.</p>
+        <p>Recognition runs on the device when your iPhone supports it. Otherwise iOS sends the audio to Apple’s speech recognition service, which handles it under Apple’s privacy policy. WordTally does not record or keep your audio.</p>
+      </section>
+      <section>
+        <h2>Notifications and pronunciation</h2>
+        <p>Word reminders are scheduled locally on your device; we do not run a notification server. Words are read aloud with the voices built into iOS, which work offline.</p>
+      </section>
+      <section>
+        <h2>Apple services</h2>
+        <p>Downloads, purchases and iCloud are handled by Apple under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple’s privacy policy</a>. If you choose to share analytics with app developers in iOS settings, Apple gives us anonymous, aggregated statistics such as the number of installs. We cannot identify you from them.</p>
+      </section>
+      <section>
+        <h2>Children</h2>
+        <p>WordTally does not collect personal data from anyone, including children.</p>
+      </section>
+      <section>
+        <h2>Changes to this policy</h2>
+        <p>If a future version adds features that send data off your device, such as syncing or leaderboards, we will update this policy and the App Store privacy details before that version is released, and describe exactly what is sent.</p>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p>WordTally is developed by Yurii Prokhorovych. Questions about privacy: <a class="contact" href="mailto:wordtally.support@gmail.com">wordtally.support@gmail.com</a></p>
+      </section>
+    </article>
+  </div>
+
+  <!-- RUSSIAN -->
+  <div lang="ru" data-lang-block="ru" class="wrap" hidden>
+    <div>
+      <h1>Политика конфиденциальности</h1>
+      <p class="meta">Действует с 16 октября 2026 года</p>
+    </div>
+    <div class="summary">
+      <p><strong>Коротко:</strong> WordTally работает на вашем устройстве. Мы не собираем, не продаём и не передаём ваши личные данные.</p>
+      <p>В приложении нет аккаунтов, рекламы, аналитики и сторонних трекеров.</p>
+    </div>
+    <article>
+      <section>
+        <h2>Что хранится на устройстве</h2>
+        <p>Прогресс, слова на изучении, время занятий, серии дней, цель на день и настройки хранятся только на вашем iPhone. Виджет WordTally берёт слова из тех же данных на устройстве. К нам ничего из этого не попадает.</p>
+        <p>Стереть прогресс можно в любой момент: «Настройки» → «Сбросить прогресс». При удалении приложения эти данные удаляются с устройства.</p>
+      </section>
+      <section>
+        <h2>Ваш номер</h2>
+        <p>При первом запуске приложение создаёт случайный номер, он виден в настройках как <span class="id-sample">WT-XXXXXXXX</span>. Номер не связан с вашим именем, почтой или Apple ID и нам не отправляется. Его можно назвать, если вы пишете в поддержку.</p>
+        <p>Номер хранится в связке ключей iOS, поэтому сохраняется после переустановки. Если включена «Связка ключей iCloud», Apple переносит его на другие ваши устройства.</p>
+      </section>
+      <section>
+        <h2>Микрофон и распознавание речи</h2>
+        <p>Микрофон используется только в игре «Speak», только после вашего разрешения и нажатия на кнопку микрофона. Сказанное сверяется со словом, которое вы тренируете.</p>
+        <p>Если iPhone это поддерживает, распознавание идёт на устройстве. Иначе iOS отправляет звук в службу распознавания речи Apple, которая обрабатывает его по политике конфиденциальности Apple. WordTally не записывает и не хранит ваш голос.</p>
+      </section>
+      <section>
+        <h2>Уведомления и произношение</h2>
+        <p>Напоминания со словами планируются на самом устройстве, своего сервера уведомлений у нас нет. Слова озвучиваются встроенными голосами iOS, которые работают без интернета.</p>
+      </section>
+      <section>
+        <h2>Сервисы Apple</h2>
+        <p>Загрузки, покупки и iCloud обслуживает Apple по своей <a href="https://www.apple.com/legal/privacy/ru/" target="_blank" rel="noopener">политике конфиденциальности</a>. Если в настройках iOS вы разрешили делиться аналитикой с разработчиками, Apple показывает нам обезличенную общую статистику, например число установок. Узнать по ней конкретного человека нельзя.</p>
+      </section>
+      <section>
+        <h2>Дети</h2>
+        <p>WordTally не собирает личные данные ни у кого, в том числе у детей.</p>
+      </section>
+      <section>
+        <h2>Изменения политики</h2>
+        <p>Если в будущей версии появятся функции, которые передают данные с устройства, например синхронизация или рейтинги, мы обновим эту политику и сведения о конфиденциальности в App Store до выхода такой версии и точно опишем, что передаётся.</p>
+      </section>
+      <section>
+        <h2>Связь</h2>
+        <p>Разработчик WordTally — Юрий Прохорович (Yurii Prokhorovych). Вопросы о конфиденциальности: <a class="contact" href="mailto:wordtally.support@gmail.com">wordtally.support@gmail.com</a></p>
+      </section>
+    </article>
+  </div>
+
+  <!-- UKRAINIAN -->
+  <div lang="uk" data-lang-block="uk" class="wrap" hidden>
+    <div>
+      <h1>Політика конфіденційності</h1>
+      <p class="meta">Діє з 16 жовтня 2026 року</p>
+    </div>
+    <div class="summary">
+      <p><strong>Коротко:</strong> WordTally працює на вашому пристрої. Ми не збираємо, не продаємо й не передаємо ваші особисті дані.</p>
+      <p>У застосунку немає облікових записів, реклами, аналітики та сторонніх трекерів.</p>
+    </div>
+    <article>
+      <section>
+        <h2>Що зберігається на пристрої</h2>
+        <p>Прогрес, слова на вивченні, час занять, серії днів, мета на день і налаштування зберігаються лише на вашому iPhone. Віджет WordTally бере слова з тих самих даних на пристрої. До нас нічого з цього не потрапляє.</p>
+        <p>Стерти прогрес можна будь-коли: «Налаштування» → «Скинути прогрес». Після видалення застосунку ці дані зникають із пристрою.</p>
+      </section>
+      <section>
+        <h2>Ваш номер</h2>
+        <p>Під час першого запуску застосунок створює випадковий номер, його видно в налаштуваннях як <span class="id-sample">WT-XXXXXXXX</span>. Номер не пов’язаний із вашим ім’ям, поштою чи Apple ID і нам не надсилається. Його можна назвати, якщо ви пишете в підтримку.</p>
+        <p>Номер зберігається у в’язці ключів iOS, тож залишається після перевстановлення. Якщо ввімкнено «В’язку ключів iCloud», Apple переносить його на інші ваші пристрої.</p>
+      </section>
+      <section>
+        <h2>Мікрофон і розпізнавання мовлення</h2>
+        <p>Мікрофон використовується лише в грі «Speak», лише після вашого дозволу й натискання кнопки мікрофона. Сказане звіряється зі словом, яке ви тренуєте.</p>
+        <p>Якщо iPhone це підтримує, розпізнавання відбувається на пристрої. Інакше iOS надсилає звук до служби розпізнавання мовлення Apple, яка обробляє його за політикою конфіденційності Apple. WordTally не записує й не зберігає ваш голос.</p>
+      </section>
+      <section>
+        <h2>Сповіщення та вимова</h2>
+        <p>Нагадування зі словами плануються на самому пристрої, власного сервера сповіщень у нас немає. Слова озвучуються вбудованими голосами iOS, які працюють без інтернету.</p>
+      </section>
+      <section>
+        <h2>Сервіси Apple</h2>
+        <p>Завантаження, покупки та iCloud обслуговує Apple за своєю <a href="https://www.apple.com/legal/privacy/ua/" target="_blank" rel="noopener">політикою конфіденційності</a>. Якщо в налаштуваннях iOS ви дозволили ділитися аналітикою з розробниками, Apple показує нам знеособлену загальну статистику, наприклад кількість встановлень. Визначити за нею конкретну людину неможливо.</p>
+      </section>
+      <section>
+        <h2>Діти</h2>
+        <p>WordTally не збирає особисті дані ні в кого, зокрема в дітей.</p>
+      </section>
+      <section>
+        <h2>Зміни політики</h2>
+        <p>Якщо в майбутній версії з’являться функції, що передають дані з пристрою, наприклад синхронізація чи рейтинги, ми оновимо цю політику та відомості про конфіденційність в App Store до виходу такої версії й точно опишемо, що передається.</p>
+      </section>
+      <section>
+        <h2>Зв’язок</h2>
+        <p>Розробник WordTally — Юрій Прохорович (Yurii Prokhorovych). Питання щодо конфіденційності: <a class="contact" href="mailto:wordtally.support@gmail.com">wordtally.support@gmail.com</a></p>
+      </section>
+    </article>
+  </div>
+
+  <footer>WordTally · iOS · <a href="./">Support</a></footer>
+</div>
+
+<script>
+  (function () {
+    var langs = ["en", "ru", "uk"];
+    function show(lang) {
+      if (langs.indexOf(lang) < 0) lang = "en";
+      document.querySelectorAll("[data-lang-block]").forEach(function (el) {
+        el.hidden = el.getAttribute("data-lang-block") !== lang;
+      });
+      document.querySelectorAll(".langs button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+      });
+      document.documentElement.lang = lang;
+    }
+    document.querySelectorAll(".langs button").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.dataset.lang); });
+    });
+    var fromHash = (location.hash || "").replace("#", "");
+    var fromBrowser = (navigator.language || "en").slice(0, 2);
+    show(langs.indexOf(fromHash) >= 0 ? fromHash : fromBrowser);
+  })();
+</script>
+</body>
+</html>
