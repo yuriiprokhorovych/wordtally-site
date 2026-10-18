@@ -50,15 +50,17 @@
   h1 { font: 600 clamp(26px, 6vw, 40px)/1.15 var(--display); margin: 0; text-wrap: balance; }
   .lead { color: var(--ink-soft); margin: 6px 0 0; }
 
-  .langs { display: flex; flex-wrap: wrap; gap: 8px; }
-  .langs button {
-    font: 600 14px/1 var(--body);
-    padding: 9px 14px; border-radius: 999px;
-    border: 1px solid var(--hair); background: var(--sheet); color: var(--ink);
-    cursor: pointer;
+  .langs { display: flex; }
+  .langs select {
+    font: 600 14px/1.2 var(--body);
+    padding: 9px 36px 9px 14px; border-radius: 999px;
+    border: 1px solid var(--hair); background-color: var(--sheet); color: var(--ink);
+    appearance: none; -webkit-appearance: none; cursor: pointer; max-width: 100%;
+    background-image: linear-gradient(45deg, transparent 50%, var(--amber) 50%), linear-gradient(135deg, var(--amber) 50%, transparent 50%);
+    background-position: calc(100% - 19px) 55%, calc(100% - 14px) 55%;
+    background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
   }
-  .langs button[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: var(--amber-ink); }
-  .langs button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .langs select:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
   .card {
     background: var(--sheet); border: 1px solid var(--hair); border-radius: 16px;
@@ -105,10 +107,27 @@
       </svg>
       WordTally
     </a>
-    <div class="langs" role="group" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">English</button>
-      <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
-      <button type="button" data-lang="uk" aria-pressed="false">Українська</button>
+    <div class="langs">
+      <select id="lang" aria-label="Language">
+        <option value="en" lang="en">English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="es" lang="es">Español</option>
+        <option value="pt" lang="pt">Português (Brasil)</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="pl" lang="pl">Polski</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="zh-Hant" lang="zh-Hant">繁體中文</option>
+        <option value="th" lang="th">ไทย</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="bn" lang="bn">বাংলা</option>
+      </select>
     </div>
   </header>
 
@@ -256,32 +275,761 @@
     </section>
   </div>
 
+  <!-- es -->
+  <div lang="es" data-lang-block="es" class="wrap" hidden>
+    <div>
+      <h1>Soporte</h1>
+      <p class="lead">WordTally te ayuda a aprender palabras en inglés en el iPhone, del nivel A1 al C1.</p>
+    </div>
+    <div class="card">
+      <p>¿Has encontrado un error, una traducción incorrecta o tienes una idea? Escríbenos: leemos todos los mensajes.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Lo más fácil: en la app, abre <span class="path">Configuración → Información → Contactar con soporte</span>. El correo ya incluirá la versión de la app y tu número, para que podamos ayudarte más rápido.</p>
+    </div>
+    <section class="faq">
+      <h2>Preguntas frecuentes</h2>
+      <details>
+        <summary>¿La app necesita internet?</summary>
+        <p>No. Las palabras, las traducciones, los juegos, los recordatorios y la pronunciación funcionan sin conexión.</p>
+      </details>
+      <details>
+        <summary>La pronunciación suena robótica. ¿Cómo puedo mejorarla?</summary>
+        <p>WordTally usa las voces integradas en iOS y elige la mejor voz en inglés instalada en tu iPhone. Descarga una de mayor calidad: <span class="path">Ajustes de iOS → Accesibilidad → Contenido leído → Voces → Inglés</span> (en versiones más recientes de iOS, esta sección puede tener otro nombre) y elige una voz «Mejorada» o «Premium» para tu acento.</p>
+      </details>
+      <details>
+        <summary>¿Mi progreso pasará a un iPhone nuevo?</summary>
+        <p>Tu progreso se guarda solo en tu iPhone y se incluye en la copia de seguridad habitual del iPhone. Restaura esa copia en el nuevo dispositivo y tus palabras volverán. La sincronización entre dispositivos aún no está disponible.</p>
+      </details>
+      <details>
+        <summary>¿Cómo empiezo de cero?</summary>
+        <p>Abre <span class="path">Configuración → Datos → Reiniciar el progreso</span>. Todas las palabras vuelven a ser nuevas. Esta acción no se puede deshacer.</p>
+      </details>
+      <details>
+        <summary>No llegan los recordatorios de palabras</summary>
+        <p>Comprueba que en la app esté activado <span class="path">Configuración → Recordatorios → Palabra en notificaciones</span> y que haya al menos una hora seleccionada. Después, asegúrate de que las notificaciones de WordTally estén permitidas en Ajustes de iOS → Notificaciones.</p>
+      </details>
+      <details>
+        <summary>¿Cómo añado el widget?</summary>
+        <p>Pantalla de inicio: mantén pulsada una zona vacía, toca «Editar» → «Añadir widget» y busca WordTally. Pantalla bloqueada: mantenla pulsada, toca «Personalizar», elige la zona encima o debajo del reloj y añade WordTally.</p>
+      </details>
+      <details>
+        <summary>El juego Speak no me oye</summary>
+        <p>El juego necesita acceso al micrófono y al reconocimiento de voz. Permite ambos en <span class="path">Ajustes de iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>¿Qué datos recopila WordTally?</summary>
+        <p>Ninguno. Todo se queda en tu dispositivo. Encontrarás los detalles en la <a href="privacy.html#es">política de privacidad</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- pt -->
+  <div lang="pt" data-lang-block="pt" class="wrap" hidden>
+    <div>
+      <h1>Suporte</h1>
+      <p class="lead">O WordTally ajuda você a aprender palavras em inglês no iPhone, do A1 ao C1.</p>
+    </div>
+    <div class="card">
+      <p>Encontrou um bug, uma tradução errada ou tem uma ideia? Escreva para nós: lemos todas as mensagens.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">O jeito mais fácil: no app, abra <span class="path">Ajustes → Sobre → Falar com o suporte</span>. O e-mail já vai com a versão do app e o seu número, para podermos ajudar mais rápido.</p>
+    </div>
+    <section class="faq">
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>O app precisa de internet?</summary>
+        <p>Não. Palavras, traduções, jogos, lembretes e pronúncia funcionam offline.</p>
+      </details>
+      <details>
+        <summary>A pronúncia soa robótica. Como posso melhorá-la?</summary>
+        <p>O WordTally usa as vozes integradas ao iOS e escolhe a melhor voz em inglês instalada no seu iPhone. Baixe uma de qualidade superior: <span class="path">Ajustes do iOS → Acessibilidade → Conteúdo Falado → Vozes → Inglês</span> (em versões mais recentes do iOS, essa seção pode ter outro nome) e escolha uma voz “Aprimorada” ou “Premium” para o seu sotaque.</p>
+      </details>
+      <details>
+        <summary>Meu progresso vai para um iPhone novo?</summary>
+        <p>Seu progresso fica salvo apenas no seu iPhone e entra no backup normal do iPhone. Restaure esse backup no novo aparelho e suas palavras voltam. A sincronização entre dispositivos ainda não está disponível.</p>
+      </details>
+      <details>
+        <summary>Como começo do zero?</summary>
+        <p>Abra <span class="path">Ajustes → Dados → Zerar o progresso</span>. Todas as palavras voltam a ser novas. Não é possível desfazer.</p>
+      </details>
+      <details>
+        <summary>Os lembretes de palavras não chegam</summary>
+        <p>Verifique se <span class="path">Ajustes → Lembretes → Palavra nas notificações</span> está ativado no app e se há pelo menos um horário selecionado. Depois, confira se as notificações do WordTally estão permitidas em Ajustes do iOS → Notificações.</p>
+      </details>
+      <details>
+        <summary>Como adiciono o widget?</summary>
+        <p>Tela de Início: toque e mantenha pressionada uma área vazia, toque em “Editar” → “Adicionar Widget” e busque WordTally. Tela Bloqueada: toque e mantenha pressionada a tela, toque em “Personalizar”, escolha a área acima ou abaixo do relógio e adicione o WordTally.</p>
+      </details>
+      <details>
+        <summary>O jogo Speak não me ouve</summary>
+        <p>O jogo precisa de acesso ao microfone e ao reconhecimento de fala. Permita os dois em <span class="path">Ajustes do iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Quais dados o WordTally coleta?</summary>
+        <p>Nenhum. Tudo fica no seu dispositivo. Os detalhes estão na <a href="privacy.html#pt">política de privacidade</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- fr -->
+  <div lang="fr" data-lang-block="fr" class="wrap" hidden>
+    <div>
+      <h1>Assistance</h1>
+      <p class="lead">WordTally vous aide à apprendre des mots anglais sur iPhone, du niveau A1 au C1.</p>
+    </div>
+    <div class="card">
+      <p>Vous avez trouvé un bug, une traduction erronée, ou vous avez une idée ? Écrivez-nous : nous lisons chaque message.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Le plus simple : dans l’app, ouvrez <span class="path">Réglages → À propos → Contacter l’assistance</span>. L’e-mail contiendra déjà la version de l’app et votre numéro, ce qui nous permettra de vous aider plus vite.</p>
+    </div>
+    <section class="faq">
+      <h2>Questions fréquentes</h2>
+      <details>
+        <summary>L’app a-t-elle besoin d’Internet ?</summary>
+        <p>Non. Les mots, les traductions, les jeux, les rappels et la prononciation fonctionnent hors ligne.</p>
+      </details>
+      <details>
+        <summary>La prononciation sonne robotique. Comment l’améliorer ?</summary>
+        <p>WordTally utilise les voix intégrées à iOS et choisit la meilleure voix anglaise installée sur votre iPhone. Téléchargez-en une de meilleure qualité : <span class="path">Réglages d’iOS → Accessibilité → Contenu énoncé → Voix → Anglais</span> (dans les versions récentes d’iOS, cette section peut porter un autre nom), puis choisissez une voix « Améliorée » ou « Premium » pour votre accent.</p>
+      </details>
+      <details>
+        <summary>Ma progression passera-t-elle sur un nouvel iPhone ?</summary>
+        <p>Votre progression est stockée uniquement sur votre iPhone et fait partie de la sauvegarde habituelle de l’iPhone. Restaurez cette sauvegarde sur le nouvel appareil, et vos mots reviendront. La synchronisation entre appareils n’est pas encore disponible.</p>
+      </details>
+      <details>
+        <summary>Comment tout recommencer ?</summary>
+        <p>Ouvrez <span class="path">Réglages → Données → Réinitialiser la progression</span>. Tous les mots redeviennent nouveaux. Cette action est irréversible.</p>
+      </details>
+      <details>
+        <summary>Les rappels de mots n’arrivent pas</summary>
+        <p>Vérifiez que <span class="path">Réglages → Rappels → Mot dans les notifications</span> est activé dans l’app et qu’au moins une heure est sélectionnée. Assurez-vous ensuite que les notifications de WordTally sont autorisées dans Réglages d’iOS → Notifications.</p>
+      </details>
+      <details>
+        <summary>Comment ajouter le widget ?</summary>
+        <p>Écran d’accueil : maintenez le doigt sur une zone vide, touchez « Modifier » → « Ajouter un widget », puis recherchez WordTally. Écran verrouillé : maintenez le doigt dessus, touchez « Personnaliser », choisissez la zone au-dessus ou en dessous de l’heure, puis ajoutez WordTally.</p>
+      </details>
+      <details>
+        <summary>Le jeu Speak ne m’entend pas</summary>
+        <p>Le jeu a besoin d’accéder au micro et à la reconnaissance vocale. Autorisez les deux dans <span class="path">Réglages d’iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Quelles données WordTally collecte-t-il ?</summary>
+        <p>Aucune. Tout reste sur votre appareil. Les détails figurent dans la <a href="privacy.html#fr">politique de confidentialité</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- de -->
+  <div lang="de" data-lang-block="de" class="wrap" hidden>
+    <div>
+      <h1>Support</h1>
+      <p class="lead">WordTally hilft dir, auf dem iPhone englische Wörter zu lernen – von A1 bis C1.</p>
+    </div>
+    <div class="card">
+      <p>Du hast einen Fehler oder eine falsche Übersetzung gefunden oder hast eine Idee? Schreib uns – wir lesen jede Nachricht.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Am einfachsten: Öffne in der App <span class="path">Einstellungen → Über die App → Support kontaktieren</span>. Die E-Mail enthält dann schon deine App-Version und deine Nummer, so können wir dir schneller helfen.</p>
+    </div>
+    <section class="faq">
+      <h2>Häufige Fragen</h2>
+      <details>
+        <summary>Braucht die App Internet?</summary>
+        <p>Nein. Wörter, Übersetzungen, Spiele, Erinnerungen und Aussprache funktionieren offline.</p>
+      </details>
+      <details>
+        <summary>Die Aussprache klingt roboterhaft. Wie kann ich sie verbessern?</summary>
+        <p>WordTally verwendet die in iOS integrierten Stimmen und wählt die beste englische Stimme, die auf deinem iPhone installiert ist. Lade eine hochwertigere Stimme: <span class="path">iOS-Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → Englisch</span> (in neueren iOS-Versionen kann dieser Bereich anders heißen) und wähle dann eine „Erweitert“- oder „Premium“-Stimme für deinen Akzent.</p>
+      </details>
+      <details>
+        <summary>Wird mein Fortschritt auf ein neues iPhone übertragen?</summary>
+        <p>Dein Fortschritt ist nur auf deinem iPhone gespeichert und Teil deines normalen iPhone-Backups. Stell dieses Backup auf dem neuen Gerät wieder her, dann sind deine Wörter wieder da. Eine Synchronisierung zwischen Geräten gibt es noch nicht.</p>
+      </details>
+      <details>
+        <summary>Wie fange ich von vorn an?</summary>
+        <p>Öffne <span class="path">Einstellungen → Daten → Fortschritt zurücksetzen</span>. Alle Wörter sind dann wieder neu. Das lässt sich nicht rückgängig machen.</p>
+      </details>
+      <details>
+        <summary>Wort-Erinnerungen kommen nicht an</summary>
+        <p>Prüfe, ob <span class="path">Einstellungen → Erinnerungen → Wort in Mitteilungen</span> in der App aktiviert und mindestens eine Uhrzeit ausgewählt ist. Stell dann sicher, dass Mitteilungen für WordTally unter iOS-Einstellungen → Mitteilungen erlaubt sind.</p>
+      </details>
+      <details>
+        <summary>Wie füge ich das Widget hinzu?</summary>
+        <p>Home-Bildschirm: Halte eine freie Stelle gedrückt, tippe auf „Bearbeiten“ → „Widget hinzufügen“ und suche nach WordTally. Sperrbildschirm: Halte ihn gedrückt, tippe auf „Anpassen“, wähle den Bereich über oder unter der Uhr und füge WordTally hinzu.</p>
+      </details>
+      <details>
+        <summary>Das Spiel Speak hört mich nicht</summary>
+        <p>Das Spiel braucht Zugriff auf Mikrofon und Spracherkennung. Erlaube beides unter <span class="path">iOS-Einstellungen → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Welche Daten erhebt WordTally?</summary>
+        <p>Keine. Alles bleibt auf deinem Gerät. Details findest du in der <a href="privacy.html#de">Datenschutzerklärung</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- it -->
+  <div lang="it" data-lang-block="it" class="wrap" hidden>
+    <div>
+      <h1>Assistenza</h1>
+      <p class="lead">WordTally ti aiuta a imparare le parole inglesi su iPhone, dal livello A1 al C1.</p>
+    </div>
+    <div class="card">
+      <p>Hai trovato un bug, una traduzione sbagliata o hai un’idea? Scrivici: leggiamo ogni messaggio.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Il modo più semplice: nell’app apri <span class="path">Impostazioni → Informazioni → Contatta l’assistenza</span>. L’email includerà già la versione dell’app e il tuo numero, così potremo aiutarti più in fretta.</p>
+    </div>
+    <section class="faq">
+      <h2>Domande frequenti</h2>
+      <details>
+        <summary>L’app ha bisogno di internet?</summary>
+        <p>No. Parole, traduzioni, giochi, promemoria e pronuncia funzionano offline.</p>
+      </details>
+      <details>
+        <summary>La pronuncia sembra robotica. Come posso migliorarla?</summary>
+        <p>WordTally usa le voci integrate in iOS e sceglie la migliore voce inglese installata sul tuo iPhone. Scaricane una di qualità superiore: <span class="path">Impostazioni di iOS → Accessibilità → Contenuto letto ad alta voce → Voci → Inglese</span> (nelle versioni più recenti di iOS questa sezione potrebbe chiamarsi diversamente), poi scegli una voce «Migliorata» o «Premium» per il tuo accento.</p>
+      </details>
+      <details>
+        <summary>I miei progressi passeranno a un nuovo iPhone?</summary>
+        <p>I tuoi progressi sono salvati solo sul tuo iPhone e sono inclusi nel normale backup dell’iPhone. Ripristina quel backup sul nuovo dispositivo e le tue parole torneranno. La sincronizzazione tra dispositivi non è ancora disponibile.</p>
+      </details>
+      <details>
+        <summary>Come ricomincio da capo?</summary>
+        <p>Apri <span class="path">Impostazioni → Dati → Azzera i progressi</span>. Tutte le parole tornano nuove. L’operazione non si può annullare.</p>
+      </details>
+      <details>
+        <summary>I promemoria delle parole non arrivano</summary>
+        <p>Controlla che nell’app sia attivo <span class="path">Impostazioni → Promemoria → Parola nelle notifiche</span> e che sia selezionata almeno un’ora. Poi assicurati che le notifiche di WordTally siano consentite in Impostazioni di iOS → Notifiche.</p>
+      </details>
+      <details>
+        <summary>Come aggiungo il widget?</summary>
+        <p>Schermata Home: tieni premuta un’area vuota, tocca «Modifica» → «Aggiungi widget» e cerca WordTally. Schermata di blocco: tienila premuta, tocca «Personalizza», scegli l’area sopra o sotto l’orologio e aggiungi WordTally.</p>
+      </details>
+      <details>
+        <summary>Il gioco Speak non mi sente</summary>
+        <p>Il gioco ha bisogno di accedere al microfono e al riconoscimento vocale. Consentili entrambi in <span class="path">Impostazioni di iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Quali dati raccoglie WordTally?</summary>
+        <p>Nessuno. Tutto resta sul tuo dispositivo. I dettagli sono nell’<a href="privacy.html#it">informativa sulla privacy</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- pl -->
+  <div lang="pl" data-lang-block="pl" class="wrap" hidden>
+    <div>
+      <h1>Pomoc</h1>
+      <p class="lead">WordTally pomaga uczyć się angielskich słów na iPhonie, od poziomu A1 do C1.</p>
+    </div>
+    <div class="card">
+      <p>Znalazłeś błąd, złe tłumaczenie albo masz pomysł? Napisz do nas, czytamy każdą wiadomość.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Najprościej: w aplikacji otwórz <span class="path">Ustawienia → O aplikacji → Napisz do pomocy technicznej</span>. Wiadomość będzie już zawierać wersję aplikacji i Twój numer, więc pomożemy szybciej.</p>
+    </div>
+    <section class="faq">
+      <h2>Najczęstsze pytania</h2>
+      <details>
+        <summary>Czy aplikacja potrzebuje internetu?</summary>
+        <p>Nie. Słowa, tłumaczenia, gry, przypomnienia i wymowa działają offline.</p>
+      </details>
+      <details>
+        <summary>Wymowa brzmi jak robot. Jak to poprawić?</summary>
+        <p>WordTally korzysta z głosów wbudowanych w iOS i wybiera najlepszy angielski głos zainstalowany na Twoim iPhonie. Pobierz głos wyższej jakości: <span class="path">Ustawienia iOS → Dostępność → Treść mówiona → Głosy → Angielski</span> (w nowszych wersjach iOS ta sekcja może nazywać się inaczej), a potem wybierz głos rozszerzony lub Premium z akcentem, który Ci odpowiada.</p>
+      </details>
+      <details>
+        <summary>Czy moje postępy przeniosą się na nowego iPhone’a?</summary>
+        <p>Twoje postępy są przechowywane tylko na Twoim iPhonie i trafiają do zwykłej kopii zapasowej iPhone’a. Odtwórz tę kopię na nowym urządzeniu, a Twoje słowa wrócą. Synchronizacja między urządzeniami nie jest jeszcze dostępna.</p>
+      </details>
+      <details>
+        <summary>Jak zacząć od nowa?</summary>
+        <p>Otwórz <span class="path">Ustawienia → Dane → Wyzeruj postęp</span>. Wszystkie słowa znów staną się nowe. Tego nie można cofnąć.</p>
+      </details>
+      <details>
+        <summary>Przypomnienia o słowach nie przychodzą</summary>
+        <p>Sprawdź, czy w aplikacji opcja <span class="path">Ustawienia → Przypomnienia → Słowo w powiadomieniach</span> jest włączona i wybrana jest co najmniej jedna godzina. Potem upewnij się, że powiadomienia WordTally są dozwolone w Ustawieniach iOS → Powiadomienia.</p>
+      </details>
+      <details>
+        <summary>Jak dodać widżet?</summary>
+        <p>Ekran początkowy: dotknij pustego miejsca i przytrzymaj, stuknij „Edycja” → „Dodaj widżet” i wyszukaj WordTally. Ekran blokady: dotknij go i przytrzymaj, stuknij „Dostosuj”, wybierz obszar nad zegarem lub pod nim i dodaj WordTally.</p>
+      </details>
+      <details>
+        <summary>Gra Speak mnie nie słyszy</summary>
+        <p>Gra potrzebuje dostępu do mikrofonu i rozpoznawania mowy. Pozwól na oba w <span class="path">Ustawienia iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Jakie dane zbiera WordTally?</summary>
+        <p>Żadnych. Wszystko zostaje na Twoim urządzeniu. Szczegóły znajdziesz w <a href="privacy.html#pl">polityce prywatności</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- tr -->
+  <div lang="tr" data-lang-block="tr" class="wrap" hidden>
+    <div>
+      <h1>Destek</h1>
+      <p class="lead">WordTally, iPhone’da A1’den C1’e kadar İngilizce kelime öğrenmenize yardımcı olur.</p>
+    </div>
+    <div class="card">
+      <p>Bir hata ya da yanlış bir çeviri mi buldunuz, yoksa bir fikriniz mi var? Bize yazın, her mesajı okuyoruz.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">En kolay yol: uygulamada <span class="path">Ayarlar → Uygulama hakkında → Destekle iletişime geç</span> bölümünü açın. E-postada uygulama sürümünüz ve numaranız hazır olarak yer alır, böylece size daha hızlı yardımcı olabiliriz.</p>
+    </div>
+    <section class="faq">
+      <h2>Sık sorulan sorular</h2>
+      <details>
+        <summary>Uygulama internet gerektiriyor mu?</summary>
+        <p>Hayır. Kelimeler, çeviriler, oyunlar, hatırlatıcılar ve telaffuz tamamen çevrimdışı çalışır.</p>
+      </details>
+      <details>
+        <summary>Telaffuz robot gibi geliyor. Nasıl daha iyi hale getirebilirim?</summary>
+        <p>WordTally, iOS’e yerleşik sesleri kullanır ve iPhone’unuzda yüklü en iyi İngilizce sesi seçer. Daha kaliteli bir ses indirin: <span class="path">iOS Ayarlar → Erişilebilirlik → Seslendirilen İçerik → Sesler → İngilizce</span> (yeni iOS sürümlerinde bu bölümün adı farklı olabilir), ardından aksanınız için Gelişmiş veya Premium bir ses seçin.</p>
+      </details>
+      <details>
+        <summary>İlerlemem yeni bir iPhone’a taşınır mı?</summary>
+        <p>İlerlemeniz yalnızca iPhone’unuzda saklanır ve iPhone’unuzun normal yedeğine dahildir. Bu yedeği yeni cihaza geri yüklediğinizde kelimeleriniz geri gelir. Cihazlar arasında eşzamanlama henüz yok.</p>
+      </details>
+      <details>
+        <summary>Nasıl baştan başlarım?</summary>
+        <p><span class="path">Ayarlar → Veriler → İlerlemeyi sıfırla</span> bölümünü açın. Tüm kelimeler yeniden yeni olur. Bu işlem geri alınamaz.</p>
+      </details>
+      <details>
+        <summary>Kelime hatırlatıcıları gelmiyor</summary>
+        <p>Uygulamada <span class="path">Ayarlar → Hatırlatıcılar → Bildirimde kelime</span> seçeneğinin açık olduğunu ve en az bir saatin seçili olduğunu kontrol edin. Ardından iOS Ayarlar → Bildirimler bölümünde WordTally bildirimlerine izin verildiğinden emin olun.</p>
+      </details>
+      <details>
+        <summary>Widget’ı nasıl eklerim?</summary>
+        <p>Ana Ekran: boş bir alana dokunup basılı tutun, “Düzenle” → “Widget Ekle”ye dokunun ve WordTally’yi arayın. Kilitli Ekran: ekrana dokunup basılı tutun, “Özelleştir”e dokunun, saatin üstündeki veya altındaki alanı seçin ve WordTally’yi ekleyin.</p>
+      </details>
+      <details>
+        <summary>Speak oyunu beni duymuyor</summary>
+        <p>Oyunun mikrofona ve konuşma tanımaya erişmesi gerekir. İkisine de <span class="path">iOS Ayarlar → WordTally</span> bölümünden izin verin.</p>
+      </details>
+      <details>
+        <summary>WordTally hangi verileri topluyor?</summary>
+        <p>Hiçbirini. Her şey cihazınızda kalır. Ayrıntılar <a href="privacy.html#tr">gizlilik politikasında</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- id -->
+  <div lang="id" data-lang-block="id" class="wrap" hidden>
+    <div>
+      <h1>Dukungan</h1>
+      <p class="lead">WordTally membantu Anda belajar kosakata bahasa Inggris di iPhone, dari A1 hingga C1.</p>
+    </div>
+    <div class="card">
+      <p>Menemukan bug, terjemahan yang salah, atau punya ide? Tulis kepada kami, kami membaca setiap pesan.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Cara termudah: di aplikasi, buka <span class="path">Pengaturan → Tentang aplikasi → Hubungi dukungan</span>. Email akan otomatis berisi versi aplikasi dan nomor Anda, sehingga kami dapat membantu lebih cepat.</p>
+    </div>
+    <section class="faq">
+      <h2>Pertanyaan umum</h2>
+      <details>
+        <summary>Apakah aplikasi ini memerlukan internet?</summary>
+        <p>Tidak. Kata, terjemahan, permainan, pengingat, dan pelafalan semuanya berfungsi secara offline.</p>
+      </details>
+      <details>
+        <summary>Pelafalannya terdengar seperti robot. Bagaimana cara membuatnya lebih baik?</summary>
+        <p>WordTally menggunakan suara bawaan iOS dan memilih suara bahasa Inggris terbaik yang terpasang di iPhone Anda. Unduh suara dengan kualitas lebih tinggi: <span class="path">Pengaturan iOS → Aksesibilitas → Konten Lisan → Suara → Inggris</span> (di versi iOS yang lebih baru, bagian ini mungkin bernama lain), lalu pilih suara Ditingkatkan atau Premium untuk aksen Anda.</p>
+      </details>
+      <details>
+        <summary>Apakah kemajuan saya akan pindah ke iPhone baru?</summary>
+        <p>Kemajuan Anda hanya disimpan di iPhone Anda dan ikut tersimpan dalam cadangan iPhone biasa. Pulihkan cadangan tersebut di perangkat baru, dan kata-kata Anda akan kembali. Sinkronisasi antarperangkat belum tersedia.</p>
+      </details>
+      <details>
+        <summary>Bagaimana cara memulai dari awal?</summary>
+        <p>Buka <span class="path">Pengaturan → Data → Atur ulang kemajuan</span>. Semua kata akan kembali menjadi baru. Tindakan ini tidak dapat dibatalkan.</p>
+      </details>
+      <details>
+        <summary>Pengingat kata tidak muncul</summary>
+        <p>Pastikan <span class="path">Pengaturan → Pengingat → Kata di notifikasi</span> aktif di aplikasi dan setidaknya satu jam dipilih. Lalu pastikan pemberitahuan untuk WordTally diizinkan di Pengaturan iOS → Pemberitahuan.</p>
+      </details>
+      <details>
+        <summary>Bagaimana cara menambahkan widget?</summary>
+        <p>Layar Utama: sentuh dan tahan area kosong, ketuk “Edit” → “Tambah Widget”, lalu cari WordTally. Layar Terkunci: sentuh dan tahan layar, ketuk “Sesuaikan”, pilih area di atas atau di bawah jam, lalu tambahkan WordTally.</p>
+      </details>
+      <details>
+        <summary>Permainan Speak tidak bisa mendengar saya</summary>
+        <p>Permainan ini memerlukan akses ke mikrofon dan pengenalan ucapan. Izinkan keduanya di <span class="path">Pengaturan iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>Data apa yang dikumpulkan WordTally?</summary>
+        <p>Tidak ada. Semuanya tetap di perangkat Anda. Detailnya ada di <a href="privacy.html#id">kebijakan privasi</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- vi -->
+  <div lang="vi" data-lang-block="vi" class="wrap" hidden>
+    <div>
+      <h1>Hỗ trợ</h1>
+      <p class="lead">WordTally giúp bạn học từ vựng tiếng Anh trên iPhone, từ A1 đến C1.</p>
+    </div>
+    <div class="card">
+      <p>Bạn phát hiện lỗi, bản dịch sai hay có ý tưởng? Hãy viết cho chúng tôi, chúng tôi đọc mọi tin nhắn.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">Cách dễ nhất: trong ứng dụng, mở <span class="path">Cài đặt → Giới thiệu → Liên hệ hỗ trợ</span>. Email sẽ có sẵn phiên bản ứng dụng và mã số của bạn, nhờ đó chúng tôi có thể hỗ trợ nhanh hơn.</p>
+    </div>
+    <section class="faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <details>
+        <summary>Ứng dụng có cần internet không?</summary>
+        <p>Không. Từ vựng, bản dịch, trò chơi, lời nhắc và phát âm đều hoạt động ngoại tuyến.</p>
+      </details>
+      <details>
+        <summary>Giọng phát âm nghe như robot. Làm sao để cải thiện?</summary>
+        <p>WordTally dùng giọng nói có sẵn trong iOS và chọn giọng tiếng Anh tốt nhất đã được cài trên iPhone của bạn. Hãy tải về một giọng chất lượng cao hơn: <span class="path">Cài đặt iOS → Trợ năng → Nội dung được đọc → Giọng nói → Tiếng Anh</span> (trên các phiên bản iOS mới hơn, mục này có thể có tên khác), sau đó chọn giọng Nâng cao hoặc Cao cấp cho giọng địa phương bạn muốn.</p>
+      </details>
+      <details>
+        <summary>Tiến độ của tôi có chuyển sang iPhone mới không?</summary>
+        <p>Tiến độ của bạn chỉ được lưu trên iPhone và có trong bản sao lưu iPhone thông thường. Hãy khôi phục bản sao lưu đó trên thiết bị mới, các từ của bạn sẽ trở lại. Hiện chưa có tính năng đồng bộ giữa các thiết bị.</p>
+      </details>
+      <details>
+        <summary>Làm sao để bắt đầu lại từ đầu?</summary>
+        <p>Mở <span class="path">Cài đặt → Dữ liệu → Đặt lại tiến độ</span>. Tất cả các từ sẽ trở lại thành từ mới. Thao tác này không thể hoàn tác.</p>
+      </details>
+      <details>
+        <summary>Không nhận được lời nhắc từ vựng</summary>
+        <p>Hãy kiểm tra xem <span class="path">Cài đặt → Nhắc nhở → Từ trong thông báo</span> đã được bật trong ứng dụng và đã chọn ít nhất một khung giờ. Sau đó đảm bảo rằng thông báo của WordTally được cho phép trong Cài đặt iOS → Thông báo.</p>
+      </details>
+      <details>
+        <summary>Làm sao để thêm tiện ích?</summary>
+        <p>Màn hình chính: chạm và giữ vào một vùng trống, chạm vào “Sửa” → “Thêm tiện ích”, rồi tìm WordTally. Màn hình khóa: chạm và giữ màn hình, chạm vào “Tùy chỉnh”, chọn vùng phía trên hoặc phía dưới đồng hồ, rồi thêm WordTally.</p>
+      </details>
+      <details>
+        <summary>Trò chơi Speak không nghe được tôi</summary>
+        <p>Trò chơi cần quyền truy cập micrô và nhận dạng giọng nói. Hãy cho phép cả hai trong <span class="path">Cài đặt iOS → WordTally</span>.</p>
+      </details>
+      <details>
+        <summary>WordTally thu thập những dữ liệu nào?</summary>
+        <p>Không có. Mọi thứ đều nằm trên thiết bị của bạn. Chi tiết có trong <a href="privacy.html#vi">chính sách quyền riêng tư</a>.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- ja -->
+  <div lang="ja" data-lang-block="ja" class="wrap" hidden>
+    <div>
+      <h1>サポート</h1>
+      <p class="lead">WordTallyは、iPhoneでA1からC1までの英単語を身につけられるアプリです。</p>
+    </div>
+    <div class="card">
+      <p>バグや誤訳を見つけたとき、アイデアがあるときは、お気軽にご連絡ください。すべてのメッセージに目を通しています。</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">いちばん簡単な方法：アプリで<span class="path">設定 → このアプリについて → サポートに問い合わせる</span>を開いてください。メールにはアプリのバージョンとあなたの番号が最初から入っているので、よりスムーズにサポートできます。</p>
+    </div>
+    <section class="faq">
+      <h2>よくある質問</h2>
+      <details>
+        <summary>インターネット接続は必要ですか？</summary>
+        <p>いいえ。単語、訳、ゲーム、リマインダー、発音はすべてオフラインで使えます。</p>
+      </details>
+      <details>
+        <summary>発音が機械的に聞こえます。改善する方法はありますか？</summary>
+        <p>WordTallyはiOSに内蔵された音声を使用し、iPhoneにインストールされている中で最も品質の高い英語の音声を選びます。より高品質な音声をダウンロードしてください：<span class="path">iOSの設定 → アクセシビリティ → 読み上げコンテンツ → 声 → 英語</span>（新しいバージョンのiOSでは項目名が異なる場合があります）。そのうえで、お好みのアクセントの「拡張」または「プレミアム」の音声を選んでください。</p>
+      </details>
+      <details>
+        <summary>進捗は新しいiPhoneに引き継げますか？</summary>
+        <p>進捗はお使いのiPhoneにのみ保存され、通常のiPhoneのバックアップに含まれます。新しいデバイスでそのバックアップから復元すれば、単語も元どおりになります。デバイス間の同期にはまだ対応していません。</p>
+      </details>
+      <details>
+        <summary>最初からやり直すには？</summary>
+        <p><span class="path">設定 → データ → 進捗をリセット</span>を開いてください。すべての単語が新しい単語に戻ります。この操作は取り消せません。</p>
+      </details>
+      <details>
+        <summary>単語のリマインダーが届きません</summary>
+        <p>アプリで<span class="path">設定 → リマインダー → 通知で単語を受け取る</span>がオンになっていて、時刻が1つ以上選択されているか確認してください。次に、iOSの「設定」→「通知」でWordTallyの通知が許可されていることを確認してください。</p>
+      </details>
+      <details>
+        <summary>ウィジェットを追加するには？</summary>
+        <p>ホーム画面：何もない部分を長押しし、「編集」→「ウィジェットを追加」をタップして、WordTallyを検索します。ロック画面：ロック画面を長押しし、「カスタマイズ」をタップして、時計の上または下のエリアを選び、WordTallyを追加します。</p>
+      </details>
+      <details>
+        <summary>「Speak」ゲームが声を聞き取ってくれません</summary>
+        <p>このゲームにはマイクと音声認識へのアクセスが必要です。<span class="path">iOSの設定 → WordTally</span>で両方を許可してください。</p>
+      </details>
+      <details>
+        <summary>WordTallyはどんなデータを収集しますか？</summary>
+        <p>何も収集しません。すべてのデータはお使いのデバイスに残ります。詳しくは<a href="privacy.html#ja">プライバシーポリシー</a>をご覧ください。</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- ko -->
+  <div lang="ko" data-lang-block="ko" class="wrap" hidden>
+    <div>
+      <h1>고객 지원</h1>
+      <p class="lead">WordTally는 iPhone에서 A1부터 C1까지 영어 단어를 익히도록 도와줘요.</p>
+    </div>
+    <div class="card">
+      <p>버그나 잘못된 번역을 발견했거나 좋은 아이디어가 있으신가요? 메일을 보내 주세요. 모든 메시지를 꼼꼼히 읽고 있어요.</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">가장 쉬운 방법: 앱에서 <span class="path">설정 → 앱 정보 → 고객 지원 문의</span>를 열어 보세요. 이메일에 앱 버전과 내 번호가 미리 들어가 있어서 더 빨리 도와드릴 수 있어요.</p>
+    </div>
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>인터넷 연결이 필요한가요?</summary>
+        <p>아니요. 단어, 번역, 게임, 알림, 발음 모두 오프라인에서 작동해요.</p>
+      </details>
+      <details>
+        <summary>발음이 기계음처럼 들려요. 더 자연스럽게 만들 수 있나요?</summary>
+        <p>WordTally는 iOS에 내장된 음성을 사용하고, iPhone에 설치된 영어 음성 중 가장 좋은 것을 골라요. 더 높은 품질의 음성을 다운로드해 보세요: <span class="path">iOS 설정 → 손쉬운 사용 → 말하기 콘텐츠 → 음성 → 영어</span>(최신 iOS 버전에서는 항목 이름이 다를 수 있어요). 그런 다음 원하는 억양의 “향상된 품질” 또는 “프리미엄” 음성을 선택하세요.</p>
+      </details>
+      <details>
+        <summary>새 iPhone으로 진행 상황을 옮길 수 있나요?</summary>
+        <p>진행 상황은 iPhone에만 저장되며 평소 iPhone 백업에 포함돼요. 새 기기에서 그 백업을 복원하면 단어도 그대로 돌아와요. 기기 간 동기화는 아직 지원하지 않아요.</p>
+      </details>
+      <details>
+        <summary>처음부터 다시 시작하려면 어떻게 하나요?</summary>
+        <p><span class="path">설정 → 데이터 → 진행 상황 초기화</span>를 열어 보세요. 모든 단어가 다시 새 단어가 돼요. 이 작업은 되돌릴 수 없어요.</p>
+      </details>
+      <details>
+        <summary>단어 알림이 오지 않아요</summary>
+        <p>앱에서 <span class="path">설정 → 알림 → 알림으로 단어 받기</span>가 켜져 있고 시간이 하나 이상 선택되어 있는지 확인하세요. 그다음 iOS 설정 → 알림에서 WordTally 알림이 허용되어 있는지 확인하세요.</p>
+      </details>
+      <details>
+        <summary>위젯은 어떻게 추가하나요?</summary>
+        <p>홈 화면: 빈 곳을 길게 터치한 다음 “편집” → “위젯 추가”를 탭하고 WordTally를 검색하세요. 잠금 화면: 잠금 화면을 길게 터치하고 “사용자화”를 탭한 다음, 시계 위나 아래 영역을 선택해 WordTally를 추가하세요.</p>
+      </details>
+      <details>
+        <summary>Speak 게임이 제 목소리를 못 알아들어요</summary>
+        <p>이 게임에는 마이크와 음성 인식 접근 권한이 필요해요. <span class="path">iOS 설정 → WordTally</span>에서 둘 다 허용해 주세요.</p>
+      </details>
+      <details>
+        <summary>WordTally는 어떤 데이터를 수집하나요?</summary>
+        <p>아무것도 수집하지 않아요. 모든 데이터는 기기에만 남아 있어요. 자세한 내용은 <a href="privacy.html#ko">개인정보 처리방침</a>에서 확인하세요.</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- zh-Hant -->
+  <div lang="zh-Hant" data-lang-block="zh-Hant" class="wrap" hidden>
+    <div>
+      <h1>支援</h1>
+      <p class="lead">WordTally 幫助你在 iPhone 上學習英文單字，程度從 A1 到 C1。</p>
+    </div>
+    <div class="card">
+      <p>發現錯誤、翻譯有誤，或有任何想法嗎？歡迎寫信給我們，每一則訊息我們都會仔細閱讀。</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">最簡單的方式：在 App 中開啟 <span class="path">設定 → 關於 → 聯絡客服</span>。郵件會自動附上 App 版本和你的編號，讓我們能更快協助你。</p>
+    </div>
+    <section class="faq">
+      <h2>常見問題</h2>
+      <details>
+        <summary>App 需要連上網路嗎？</summary>
+        <p>不需要。單字、翻譯、遊戲、提醒和發音全都可以離線使用。</p>
+      </details>
+      <details>
+        <summary>發音聽起來很像機器人，要怎麼改善？</summary>
+        <p>WordTally 使用 iOS 內建的語音，並會選用你 iPhone 上已安裝的最佳英文語音。你可以下載品質更好的語音：<span class="path">iOS 設定 → 輔助使用 → 語音內容 → 聲音 → 英文</span>（在較新版本的 iOS 中，名稱可能不同），然後依你想要的口音選擇「增強版」或「高品質」語音。</p>
+      </details>
+      <details>
+        <summary>我的進度能轉移到新的 iPhone 嗎？</summary>
+        <p>你的進度只儲存在你的 iPhone 上，並包含在一般的 iPhone 備份中。在新裝置上回復該備份，你的單字就會回來。目前尚不支援裝置間同步。</p>
+      </details>
+      <details>
+        <summary>要怎麼重新開始？</summary>
+        <p>開啟 <span class="path">設定 → 資料 → 重設進度</span>。所有單字都會重新變成新單字。此動作無法復原。</p>
+      </details>
+      <details>
+        <summary>收不到單字提醒</summary>
+        <p>請確認 App 中的 <span class="path">設定 → 提醒 → 通知中的單字</span> 已開啟，且至少選擇了一個時間。接著確認在 iOS「設定」→「通知」中，已允許 WordTally 傳送通知。</p>
+      </details>
+      <details>
+        <summary>要怎麼加入小工具？</summary>
+        <p>主畫面：按住空白處，點一下「編輯」→「加入小工具」，然後搜尋 WordTally。鎖定畫面：按住鎖定畫面，點一下「自訂」，選擇時間上方或下方的區域，再加入 WordTally。</p>
+      </details>
+      <details>
+        <summary>Speak 遊戲聽不到我的聲音</summary>
+        <p>這個遊戲需要取用麥克風和語音辨識的權限。請在 <span class="path">iOS 設定 → WordTally</span> 中允許這兩項權限。</p>
+      </details>
+      <details>
+        <summary>WordTally 會蒐集哪些資料？</summary>
+        <p>完全不會。所有資料都保留在你的裝置上。詳細內容請參閱<a href="privacy.html#zh-Hant">隱私權政策</a>。</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- th -->
+  <div lang="th" data-lang-block="th" class="wrap" hidden>
+    <div>
+      <h1>ฝ่ายสนับสนุน</h1>
+      <p class="lead">WordTally ช่วยให้คุณเรียนคำศัพท์ภาษาอังกฤษบน iPhone ตั้งแต่ระดับ A1 ถึง C1</p>
+    </div>
+    <div class="card">
+      <p>พบข้อผิดพลาด คำแปลที่ไม่ถูกต้อง หรือมีไอเดียใหม่ๆ ใช่ไหม เขียนถึงเราได้เลย เราอ่านทุกข้อความ</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">วิธีที่ง่ายที่สุด: ในแอป ให้เปิด <span class="path">การตั้งค่า → เกี่ยวกับ → ติดต่อฝ่ายสนับสนุน</span> อีเมลจะมีเวอร์ชันของแอปและหมายเลขของคุณใส่ไว้ให้แล้ว เราจึงช่วยเหลือคุณได้เร็วขึ้น</p>
+    </div>
+    <section class="faq">
+      <h2>คำถามที่พบบ่อย</h2>
+      <details>
+        <summary>แอปต้องใช้อินเทอร์เน็ตหรือไม่</summary>
+        <p>ไม่ต้อง คำศัพท์ คำแปล เกม การเตือน และการออกเสียงทั้งหมดใช้งานได้แบบออฟไลน์</p>
+      </details>
+      <details>
+        <summary>เสียงออกเสียงฟังดูเหมือนหุ่นยนต์ จะทำให้ดีขึ้นได้อย่างไร</summary>
+        <p>WordTally ใช้เสียงที่มีในตัว iOS และเลือกเสียงภาษาอังกฤษที่ดีที่สุดที่ติดตั้งอยู่บน iPhone ของคุณ ลองดาวน์โหลดเสียงที่มีคุณภาพสูงขึ้น: <span class="path">การตั้งค่า iOS → การช่วยการเข้าถึง → เนื้อหาที่ถูกพูด → เสียง → อังกฤษ</span> (ใน iOS เวอร์ชันใหม่ ส่วนนี้อาจใช้ชื่ออื่น) จากนั้นเลือกเสียงแบบปรับปรุงหรือพรีเมียมสำหรับสำเนียงที่คุณต้องการ</p>
+      </details>
+      <details>
+        <summary>ความคืบหน้าของฉันจะย้ายไปยัง iPhone เครื่องใหม่ได้ไหม</summary>
+        <p>ความคืบหน้าของคุณจัดเก็บไว้บน iPhone ของคุณเท่านั้น และรวมอยู่ในข้อมูลสำรอง iPhone ตามปกติ เมื่อกู้คืนข้อมูลสำรองนั้นบนอุปกรณ์เครื่องใหม่ คำของคุณจะกลับมา ขณะนี้ยังไม่มีการซิงค์ระหว่างอุปกรณ์</p>
+      </details>
+      <details>
+        <summary>จะเริ่มต้นใหม่ได้อย่างไร</summary>
+        <p>เปิด <span class="path">การตั้งค่า → ข้อมูล → รีเซ็ตความคืบหน้า</span> คำทั้งหมดจะกลับเป็นคำใหม่อีกครั้ง การดำเนินการนี้ไม่สามารถเลิกทำได้</p>
+      </details>
+      <details>
+        <summary>ไม่ได้รับการเตือนคำศัพท์</summary>
+        <p>ตรวจสอบว่าเปิด <span class="path">การตั้งค่า → การเตือน → คำในการแจ้งเตือน</span> ไว้ในแอป และเลือกเวลาไว้อย่างน้อยหนึ่งช่วง จากนั้นตรวจสอบให้แน่ใจว่าอนุญาตการแจ้งเตือนของ WordTally ไว้ใน การตั้งค่า iOS → การแจ้งเตือน</p>
+      </details>
+      <details>
+        <summary>จะเพิ่มวิดเจ็ตได้อย่างไร</summary>
+        <p>หน้าจอโฮม: แตะพื้นที่ว่างค้างไว้ แตะ “แก้ไข” → “เพิ่มวิดเจ็ต” แล้วค้นหา WordTally หน้าจอล็อค: แตะหน้าจอค้างไว้ แตะ “กำหนดเอง” เลือกพื้นที่ด้านบนหรือด้านล่างนาฬิกา แล้วเพิ่ม WordTally</p>
+      </details>
+      <details>
+        <summary>เกม Speak ไม่ได้ยินเสียงฉัน</summary>
+        <p>เกมนี้ต้องเข้าถึงไมโครโฟนและการรู้จำเสียงพูด อนุญาตทั้งสองอย่างได้ที่ <span class="path">การตั้งค่า iOS → WordTally</span></p>
+      </details>
+      <details>
+        <summary>WordTally เก็บข้อมูลอะไรบ้าง</summary>
+        <p>ไม่เก็บเลย ทุกอย่างอยู่บนอุปกรณ์ของคุณ ดูรายละเอียดได้ใน<a href="privacy.html#th">นโยบายความเป็นส่วนตัว</a></p>
+      </details>
+    </section>
+  </div>
+
+  <!-- hi -->
+  <div lang="hi" data-lang-block="hi" class="wrap" hidden>
+    <div>
+      <h1>सहायता</h1>
+      <p class="lead">WordTally आपको iPhone पर A1 से C1 तक के अंग्रेज़ी शब्द सीखने में मदद करता है।</p>
+    </div>
+    <div class="card">
+      <p>कोई बग मिला, कोई अनुवाद गलत लगा, या कोई सुझाव है? हमें लिखें, हम हर संदेश पढ़ते हैं।</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">सबसे आसान तरीका: ऐप में <span class="path">सेटिंग्ज़ → ऐप के बारे में → सहायता से संपर्क करें</span> खोलें। ईमेल में आपके ऐप का संस्करण और आपका नंबर पहले से शामिल होगा, ताकि हम जल्दी मदद कर सकें।</p>
+    </div>
+    <section class="faq">
+      <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+      <details>
+        <summary>क्या ऐप को इंटरनेट की ज़रूरत है?</summary>
+        <p>नहीं। शब्द, अनुवाद, गेम, रिमाइंडर और उच्चारण — सब कुछ ऑफ़लाइन काम करता है।</p>
+      </details>
+      <details>
+        <summary>उच्चारण रोबोट जैसा लगता है। इसे बेहतर कैसे करें?</summary>
+        <p>WordTally iOS में पहले से मौजूद आवाज़ों का उपयोग करता है और आपके iPhone पर इंस्टॉल सबसे अच्छी अंग्रेज़ी आवाज़ चुनता है। बेहतर क्वालिटी वाली आवाज़ डाउनलोड करें: <span class="path">iOS सेटिंग्ज़ → ऐक्सेसिबिलिटी → बोली गई सामग्री → आवाज़ें → अंग्रेज़ी</span> (नए iOS संस्करणों में इस सेक्शन का नाम अलग हो सकता है), फिर अपने पसंदीदा लहजे के लिए “एन्हांस्ड” या “प्रीमियम” आवाज़ चुनें।</p>
+      </details>
+      <details>
+        <summary>क्या मेरी प्रगति नए iPhone पर आ जाएगी?</summary>
+        <p>आपकी प्रगति केवल आपके iPhone पर संग्रहीत होती है और आपके नियमित iPhone बैकअप में शामिल होती है। नए डिवाइस पर वह बैकअप रिस्टोर करें, आपके शब्द वापस आ जाएँगे। डिवाइसों के बीच सिंक अभी उपलब्ध नहीं है।</p>
+      </details>
+      <details>
+        <summary>फिर से शुरुआत कैसे करें?</summary>
+        <p><span class="path">सेटिंग्ज़ → डेटा → प्रगति रीसेट करें</span> खोलें। सभी शब्द फिर से नए हो जाएँगे। इसे पूर्ववत नहीं किया जा सकता।</p>
+      </details>
+      <details>
+        <summary>शब्द रिमाइंडर नहीं आ रहे</summary>
+        <p>जाँच लें कि ऐप में <span class="path">सेटिंग्ज़ → रिमाइंडर → सूचनाओं में शब्द</span> चालू है और कम से कम एक समय चुना गया है। फिर पक्का करें कि iOS सेटिंग्ज़ → सूचनाएँ में WordTally के लिए सूचनाओं की अनुमति है।</p>
+      </details>
+      <details>
+        <summary>विजेट कैसे जोड़ें?</summary>
+        <p>होम स्क्रीन: किसी खाली जगह को टच करके रखें, “संपादित करें” → “विजेट जोड़ें” पर टैप करें और WordTally खोजें। लॉक स्क्रीन: उसे टच करके रखें, “कस्टमाइज़ करें” पर टैप करें, घड़ी के ऊपर या नीचे का हिस्सा चुनें और WordTally जोड़ें।</p>
+      </details>
+      <details>
+        <summary>Speak गेम मेरी आवाज़ नहीं सुन पाता</summary>
+        <p>इस गेम को माइक्रोफ़ोन और स्पीच रिकग्निशन की एक्सेस चाहिए। <span class="path">iOS सेटिंग्ज़ → WordTally</span> में दोनों की अनुमति दें।</p>
+      </details>
+      <details>
+        <summary>WordTally कौन-सा डेटा इकट्ठा करता है?</summary>
+        <p>कोई नहीं। सब कुछ आपके डिवाइस पर ही रहता है। विवरण <a href="privacy.html#hi">गोपनीयता नीति</a> में है।</p>
+      </details>
+    </section>
+  </div>
+
+  <!-- bn -->
+  <div lang="bn" data-lang-block="bn" class="wrap" hidden>
+    <div>
+      <h1>সহায়তা</h1>
+      <p class="lead">WordTally আপনাকে iPhone-এ A1 থেকে C1 পর্যন্ত ইংরেজি শব্দ শিখতে সাহায্য করে।</p>
+    </div>
+    <div class="card">
+      <p>কোনো বাগ বা ভুল অনুবাদ পেয়েছেন, কিংবা কোনো আইডিয়া আছে? আমাদের লিখুন, আমরা প্রতিটি বার্তা পড়ি।</p>
+      <a class="mail" href="mailto:wordtally.support@gmail.com?subject=WordTally">wordtally.support@gmail.com</a>
+      <p class="note">সবচেয়ে সহজ উপায়: অ্যাপে <span class="path">সেটিংস → অ্যাপ সম্পর্কে → সহায়তায় যোগাযোগ করুন</span> খুলুন। ইমেলে আপনার অ্যাপের সংস্করণ ও আপনার নম্বর আগে থেকেই যুক্ত থাকবে, তাই আমরা দ্রুত সাহায্য করতে পারব।</p>
+    </div>
+    <section class="faq">
+      <h2>প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+      <details>
+        <summary>অ্যাপটি চালাতে কি ইন্টারনেট লাগে?</summary>
+        <p>না। শব্দ, অনুবাদ, গেম, রিমাইন্ডার ও উচ্চারণ — সবই অফলাইনে কাজ করে।</p>
+      </details>
+      <details>
+        <summary>উচ্চারণ যান্ত্রিক শোনায়। কীভাবে আরও ভালো করা যায়?</summary>
+        <p>WordTally iOS-এর বিল্ট-ইন কণ্ঠস্বর ব্যবহার করে এবং আপনার iPhone-এ ইনস্টল করা সেরা ইংরেজি কণ্ঠস্বরটি বেছে নেয়। আরও ভালো মানের একটি কণ্ঠস্বর ডাউনলোড করুন: <span class="path">iOS সেটিংস → অ্যাক্সেসিবিলিটি → কথ্য বিষয়বস্তু → কণ্ঠস্বর → ইংরেজি</span> (নতুন iOS সংস্করণে এই অংশের নাম আলাদা হতে পারে), তারপর আপনার পছন্দের উচ্চারণভঙ্গির জন্য একটি “এনহান্সড” বা “প্রিমিয়াম” কণ্ঠস্বর বেছে নিন।</p>
+      </details>
+      <details>
+        <summary>আমার অগ্রগতি কি নতুন iPhone-এ চলে যাবে?</summary>
+        <p>আপনার অগ্রগতি শুধু আপনার iPhone-এ সংরক্ষিত থাকে এবং আপনার নিয়মিত iPhone ব্যাকআপে অন্তর্ভুক্ত থাকে। নতুন ডিভাইসে সেই ব্যাকআপ রিস্টোর করলেই আপনার শব্দগুলো ফিরে আসবে। ডিভাইসগুলোর মধ্যে সিঙ্ক এখনো উপলব্ধ নয়।</p>
+      </details>
+      <details>
+        <summary>কীভাবে আবার শুরু থেকে শুরু করব?</summary>
+        <p><span class="path">সেটিংস → ডেটা → অগ্রগতি রিসেট করুন</span> খুলুন। সব শব্দ আবার নতুন হয়ে যাবে। এটি আর ফেরানো যাবে না।</p>
+      </details>
+      <details>
+        <summary>শব্দের রিমাইন্ডার আসছে না</summary>
+        <p>অ্যাপে <span class="path">সেটিংস → রিমাইন্ডার → নোটিফিকেশনে শব্দ</span> চালু আছে এবং অন্তত একটি সময় বেছে নেওয়া আছে কি না দেখে নিন। তারপর iOS সেটিংস → নোটিফিকেশনে WordTally-র নোটিফিকেশন অনুমোদিত আছে কি না নিশ্চিত করুন।</p>
+      </details>
+      <details>
+        <summary>উইজেট কীভাবে যোগ করব?</summary>
+        <p>হোম স্ক্রিন: কোনো ফাঁকা জায়গায় টাচ করে ধরে রাখুন, “এডিট করুন” → “উইজেট যোগ করুন”-এ ট্যাপ করুন এবং WordTally খুঁজুন। লক স্ক্রিন: লক স্ক্রিনে টাচ করে ধরে রাখুন, “কাস্টমাইজ করুন”-এ ট্যাপ করুন, ঘড়ির ওপরের বা নিচের অংশ বেছে নিন এবং WordTally যোগ করুন।</p>
+      </details>
+      <details>
+        <summary>Speak গেম আমার কথা শুনতে পাচ্ছে না</summary>
+        <p>গেমটির মাইক্রোফোন ও স্পিচ রিকগনিশনে অ্যাক্সেস প্রয়োজন। <span class="path">iOS সেটিংস → WordTally</span>-এ দুটিরই অনুমতি দিন।</p>
+      </details>
+      <details>
+        <summary>WordTally কী ডেটা সংগ্রহ করে?</summary>
+        <p>কোনোটিই না। সবকিছু আপনার ডিভাইসেই থাকে। বিস্তারিত <a href="privacy.html#bn">গোপনীয়তা নীতি</a>-তে আছে।</p>
+      </details>
+    </section>
+  </div>
+
   <footer>WordTally · iOS · <a href="privacy.html" id="privacy-link">Privacy Policy</a></footer>
 </div>
 
 <script>
   (function () {
-    var langs = ["en", "ru", "uk"];
-    var privacy = { en: "Privacy Policy", ru: "Политика конфиденциальности", uk: "Політика конфіденційності" };
+    var privacy = {"en": "Privacy Policy", "ru": "Политика конфиденциальности", "uk": "Політика конфіденційності", "es": "Política de privacidad", "pt": "Política de Privacidade", "fr": "Politique de confidentialité", "de": "Datenschutzerklärung", "it": "Informativa sulla privacy", "pl": "Polityka prywatności", "tr": "Gizlilik Politikası", "id": "Kebijakan Privasi", "vi": "Chính sách quyền riêng tư", "ja": "プライバシーポリシー", "ko": "개인정보 처리방침", "zh-Hant": "隱私權政策", "th": "นโยบายความเป็นส่วนตัว", "hi": "गोपनीयता नीति", "bn": "গোপনীয়তা নীতি"};
     function show(lang) {
-      if (langs.indexOf(lang) < 0) lang = "en";
       document.querySelectorAll("[data-lang-block]").forEach(function (el) {
         el.hidden = el.getAttribute("data-lang-block") !== lang;
       });
-      document.querySelectorAll(".langs button").forEach(function (b) {
-        b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
-      });
+      select.value = lang;
       var link = document.getElementById("privacy-link");
       link.textContent = privacy[lang];
       link.href = "privacy.html" + (lang === "en" ? "" : "#" + lang);
       document.documentElement.lang = lang;
     }
-    document.querySelectorAll(".langs button").forEach(function (b) {
-      b.addEventListener("click", function () { show(b.dataset.lang); });
+    var langs = ["en", "ru", "uk", "es", "pt", "fr", "de", "it", "pl", "tr", "id", "vi", "ja", "ko", "zh-Hant", "th", "hi", "bn"];
+    function pick(tag) {
+      tag = (tag || "").toLowerCase();
+      if (tag.indexOf("zh") === 0) return /hant|tw|hk|mo/.test(tag) ? "zh-Hant" : null;
+      var base = tag.split("-")[0];
+      return langs.indexOf(base) >= 0 ? base : null;
+    }
+    function fromSystem() {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+      for (var i = 0; i < list.length; i++) { var l = pick(list[i]); if (l) return l; }
+      return "en";
+    }
+    var select = document.getElementById("lang");
+    select.addEventListener("change", function () {
+      show(select.value);
+      history.replaceState(null, "", select.value === "en" ? location.pathname : "#" + select.value);
     });
-    var fromHash = (location.hash || "").replace("#", "");
-    var fromBrowser = (navigator.language || "en").slice(0, 2);
-    show(langs.indexOf(fromHash) >= 0 ? fromHash : fromBrowser);
+    var fromHash = decodeURIComponent((location.hash || "").replace("#", ""));
+    show(langs.indexOf(fromHash) >= 0 ? fromHash : fromSystem());
   })();
 </script>
 </body>
